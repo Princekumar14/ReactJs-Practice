@@ -3,7 +3,7 @@ import BlogList from "./BlogList";
 import useFetch from "./useFetch";
 
 const Home = () => {
-    const {data:blogs, isPending, error}=useFetch('http://localhost:8000/blogs')
+    const {data:blogs, isPending, error, setData}=useFetch('http://localhost:8000/blogs')
     // const [blogs, setBlogs] = useState( null
     //     [ 
     //     { title: 'My website', body: 'Lorem ipsum...', author: 'prince', id: 1 },
@@ -18,12 +18,13 @@ const Home = () => {
     
     const handleDelete = (id)=>{
         const newBlogs = blogs.filter(blog => blog.id !==id)
-        // setBlogs(newBlogs);
+        setData(newBlogs);
    }
 
     
     return (
         <div className="home">
+            
             {/* <BlogList blogss={blogs} Title="All Blogs"/> */}
             {/* <BlogList blogss={blogs} Title="All new Blogs" handleDeleteBtn={handleDelete}/> */}
             {/* <BlogList blogss={blogs.filter((blog)=> blog.author === 'prince')} Title="prince's Blogs"/> */}
@@ -32,6 +33,7 @@ const Home = () => {
             { isPending && <div>Loading...</div> }
             {blogs && <BlogList blogss={blogs} Title="All new Blogs" handleDeleteBtn={handleDelete}/>}
         </div>
+        
     );
 }
 

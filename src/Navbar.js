@@ -1,11 +1,11 @@
-
+import { NavLink } from "react-router-dom";
 const Navbar = (props) => {
     return ( 
         <nav className="navbar">
             <h1>The Prince's Blog</h1>
-            <div className="links">
-                <a href="/">{props.title}</a>
-                <a href="/create">New Blog</a>
+            <div className="NavLinks">
+                <NavLink to="/">{props.title}</NavLink>
+                <NavLink to="/create">New Blog</NavLink>
             </div>
         </nav>
      );
