@@ -5,6 +5,7 @@ import Home from './Home';
 import Create from './Create';
 import { Routes, Route, Outlet } from 'react-router-dom';
 import BlogDetails from './BlogDetails';
+import NotFound from './NotFound';
 function App() {
   // var [count,setCount] = React.useState(0)
 
@@ -16,7 +17,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />}/>
             <Route path='/create' element={<Create />} />
-            <Route path='*' element={<div>Error page</div>} />
+            <Route path='*' element={<NotFound/>} />
             <Route path='/blogs/:id' element={<BlogDetails />} />
 
           {/* </Route> */}
